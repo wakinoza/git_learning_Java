@@ -1,6 +1,6 @@
-public class Account {
+public class Account implements Comparable<Account> {
   String accountNumber;
-  int balance;
+  int number;
   
   public String toString(){
       return "¥¥" + this.balance + "（口座番号：" + this.accountNumber + ")";
@@ -21,5 +21,15 @@ public class Account {
         return false;
     }
     return true;
+  }
+
+  public int compareTo(Account obj){
+    if (this.number < obj.number){
+      return -1;
+    }
+    if (this.number > obj.number){
+      return 1;
+    }
+    return 0;
   }
 }
