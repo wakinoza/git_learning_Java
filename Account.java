@@ -7,15 +7,19 @@ public class Account {
   }
   
   public boolean equals(Object o){
-      if (this == o){
-          return true;
-      }
-      if (o instanceof Account a){
-          String answer1 = this.accountNumber.trim();
-          String answer2 = a.accountNumber.trim();
-          if(answer1.equals(answer2)){
-              return true;
-          }
-      }
+    if (o == this){  //自分自身が引数として渡されたら、無条件でtrue
+        return true;
+    }
+    if (o == null){ //nullが引数なら、無条件でfalse
+         return false;
+    }  
+    if (!(o instanceof Account a)) {  //型が異なるなら、falseを返す
+        return false;
+    }
+    Account r = (Account)o;  //型が同じなら、適切にキャストする
+    if (!this.accountNumber.trim().equals(r.accountNumber.trim())){ //先頭と末尾の空白を取り除いた口座番号を文字列で比較する
+        return false;
+    }
+    return true;
   }
 }
