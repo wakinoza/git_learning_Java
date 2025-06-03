@@ -1,6 +1,7 @@
-public class Hero {
+public class Hero implements Cloneable{
     private String name;
     private int hp;
+    Sword sword;
     
     public String getName(){
         return this.name;
@@ -13,6 +14,14 @@ public class Hero {
             this.hp = 0;
         }
         this.hp = newHp; 
+    }
+
+    public Hero clone(){
+        Hero result = new Hero();
+        result.name = this.name;
+        result.hp = this.hp;
+        result.sword = this.sword.clone();
+        return result;
     }
 
 }
