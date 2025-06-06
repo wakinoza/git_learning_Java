@@ -1,11 +1,18 @@
-public class Main {
-  public static void main(String[] args) {
-    Y[] yArr = new Y[2];
-    yArr[0] = new A();
-    yArr[1] = new B();
+import java.util.*;
 
-    for (Y y : yArr){
-        y.b();
+public class Main {
+    public static Optional<String> decorate(String s, char c){
+      String r;
+      if (s == null || s.length() == 0) {
+        r = null;
+      } else {
+        r = c + s + c;
+      }
+      return Optional.ofNullable(r);
+    }  
+
+    public static void main(String[] args) {
+      Optional<String> s = decorate("", '*');
+      System.out.println(s.orElse("nullのため処理できません"));
     }
-  }
 }
