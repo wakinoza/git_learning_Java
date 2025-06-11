@@ -1,14 +1,19 @@
+import java.util.*;
+
 
 public class Main {
   public static void main(String[] args) throws Exception{
-    System.out.println("計算を開始します");
-    //any code
-    System.out.println("計算終了。結果をメモ帳に表示します");
-    ProcessBuilder pb = new ProcessBuilder(
-      "c:¥¥windows¥¥system33¥¥notepad.exe",
-      "calcreport.txt"
-    );
-    pb.start();
+    System.out.print("利用中のJavaバージョン：");
+    System.out.println(System.getProperty("Java.version"));
+
+    Properties p = System.getProperties();
+    Iterator<String> i = p.stringPropertyNames().iterator();
+    System.out.println("システムプロパティ一覧");
+    while (i.hasNext()){
+      String key = i.next();
+      System.out.print(key + " = ");
+      System.out.println(System.getProperty(key));
+    }
   }
 }
 
