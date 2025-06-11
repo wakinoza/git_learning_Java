@@ -1,12 +1,14 @@
 
 public class Main {
-  public static void main(String[] args) {
-    boolean isErr = true;
-    if (isErr){
-      System.out.println("データが壊れています。異常終了します");
-      System.exit(1);
-    }
-    System.out.println("正常終了しました");
+  public static void main(String[] args) throws Exception{
+    System.out.println("計算を開始します");
+    //any code
+    System.out.println("計算終了。結果をメモ帳に表示します");
+    ProcessBuilder pb = new ProcessBuilder(
+      "c:¥¥windows¥¥system33¥¥notepad.exe",
+      "calcreport.txt"
+    );
+    pb.start();
   }
 }
 
