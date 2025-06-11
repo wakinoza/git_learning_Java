@@ -14,6 +14,9 @@ public class Main {
       System.out.print(key + " = ");
       System.out.println(System.getProperty(key));
     }
+
+    final String BR = System.getProperty("line.separator");
+    System.out.print("本日は" + BR + "晴天なり");
   }
 }
 
