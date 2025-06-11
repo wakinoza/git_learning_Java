@@ -1,10 +1,12 @@
-import java.util.function.*;
-import java.util.*;
 
 public class Main {
   public static void main(String[] args) {
-    List<Hero> heros = new ArrayList<>();
-    boolean anyoneKnockOut = heros.stream().anyMatch(h -> h.hp == 0);
+    boolean isErr = true;
+    if (isErr){
+      System.out.println("データが壊れています。異常終了します");
+      System.exit(1);
+    }
+    System.out.println("正常終了しました");
   }
 }
 
