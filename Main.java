@@ -1,22 +1,16 @@
 import java.util.*;
-
+import java.text.*;
 
 public class Main {
-  public static void main(String[] args) throws Exception{
-    System.out.print("利用中のJavaバージョン：");
-    System.out.println(System.getProperty("Java.version"));
-
-    Properties p = System.getProperties();
-    Iterator<String> i = p.stringPropertyNames().iterator();
-    System.out.println("システムプロパティ一覧");
-    while (i.hasNext()){
-      String key = i.next();
-      System.out.print(key + " = ");
-      System.out.println(System.getProperty(key));
+  public static void main(String[] args) {
+    Locale loc = Locale.getDefault(); //デフォルトロケールを取得
+    System.out.println(loc.getCountry() + "-" + loc.getLanguage());
+    String now = (new SimpleDateFormat()).format(new Date());
+    if (loc.getLanguage().equals("ja")){
+      System.out.println("現在の時刻は" + now);
+    } else {
+      System.out.println("Current time is" + now);
     }
-
-    final String BR = System.getProperty("line.separator");
-    System.out.print("本日は" + BR + "晴天なり");
   }
 }
 
