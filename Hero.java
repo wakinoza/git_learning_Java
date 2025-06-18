@@ -1,8 +1,17 @@
-public class Hero implements Cloneable{
+import java.io.*;
+
+public class Hero implements Cloneable,Serializable{
     private String name;
     private int hp;
-    Sword sword;
+    private int mp;
     
+    public Hero(String name,int hp,int mp){
+        this.name = name;
+        this.hp = hp;
+        this.mp = mp;
+    }
+
+
     public String getName(){
         return this.name;
     }
@@ -20,7 +29,7 @@ public class Hero implements Cloneable{
         Hero result = new Hero();
         result.name = this.name;
         result.hp = this.hp;
-        result.sword = this.sword.clone();
+        result.mp = this.mp;
         return result;
     }
 
