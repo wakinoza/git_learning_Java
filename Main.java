@@ -13,7 +13,9 @@ public class Main {
     int i = isr.read();
     while (i != -1){
       System.out.print((char) i);
+      i = isr.read();
     }
+    sock.close();
   }
 }
 
