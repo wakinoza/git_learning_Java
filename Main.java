@@ -1,22 +1,19 @@
 import java.io.*;
+import java.net.*;
 
 public class Main {
   public static void main(String[] args)throws Exception{
-    Hero hero1 = new Hero("ミナト",75,18);
-
-    //インスタンスの直列化と保存
-    FileOutputStream fos = new FileOutputStream(("rpgsave.dat")); 
-    ObjectOutputStream oos = new ObjectOutputStream(fos);
-    oos.writeObject(hero1); //インスタンスをバイト列へ変換
-    oos.flush();
-    oos.close();
-
-    //ファイルからインスタンスを復元
-    FileInputStream fis = new FileInputStream("rpgsave.dat");
-    ObjectInputStream ois = new ObjectInputStream(fis);
-    Hero hero2 = (Hero)ois.readObject(); //バイト列をインスタンスに復元
-    ois.close();
-    
+    Socket sock = new Socket("dokojava.jp",80);
+    InputStream is = sock.getInputStream();
+    OutputStream os = sock.getOutputStream();
+    os.write("GET /index.html HTTP/1.0¥r¥n".getBytes());
+    os.write("¥r¥n".getBytes());
+    os.flush();
+    InputStreamReader isr = new InputStreamReader(is);
+    int i = isr.read();
+    while (i != -1){
+      System.out.print((char) i);
+    }
   }
 }
 
