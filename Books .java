@@ -5,6 +5,9 @@ public class Books implements Comparable ,Cloneable<Books>{
   private Date publishDate;
   private String comment;
 
+  public String getTitle(){
+    return this.title;
+  }
   public boolean equals(Object o){
     if (o == this) return true;
     if (o == null) return false;
