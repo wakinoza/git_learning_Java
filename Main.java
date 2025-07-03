@@ -1,13 +1,13 @@
-import java.util.function.*;
+import java.util.*;
+import java.util.stream.*;
 
 public class Main {
   public static void main(String[] args)throws Exception{
-    IntPredicate f1 = x -> x % 2 == 1;
-    Func2 f2 = (point, name) -> {
-      return name + "さんは" + (point > 65 ? "合格" : "不合格");
-    };
-    System.out.println(f1.test(15));
-    System.out.println(f2.call(66,"Smith"));
+    List <String> names = List.of("湊", "朝香" , "菅原", "大江");
+    names.stream()
+      .filter(n -> n.length() <= 1)
+      .map(n -> n + "さん")
+      .forEach(System.out::println);
   }
 }
 
