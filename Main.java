@@ -1,19 +1,11 @@
-import java.util.*;
-import java.text.SimpleDateFormat;
 
 public class Main {
   public static void main(String[] args)throws Exception{
-    SimpleDateFormat f = new SimpleDateFormat("yyyy/mm//dd");
-    ArrayList<Books> books = new ArrayList<>();
-    books.add(new Books("Java入門", f.parse("2011/10/07"), "スッキリわかる"));
-    books.add(new Books("Python入門", f.parse("2019/06/11"), "カレーが食べたくなる"));
-    books.add(new Books("C言語入門", f.parse("2018/06/21"), "ポインタも自由自在"));
-
-    Collections.sort(books,new TitleComparator());
-
-    for (Books book : books){
-      System.out.println(book.getTitle() + f.format(book.getPublishDate()) + book.getComment());
-    }
+    FuncList funclist = new FuncList();
+    Func1 f1 = funclist::isOdd;
+    Func2 f2 = funclist::passCheck;
+    System.out.println(f1.call(15));
+    System.out.println(f2.call(66,"Smith"));
   }
 }
 
